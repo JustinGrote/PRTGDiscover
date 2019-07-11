@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devicetemplate id="prtgdiscover" name="PRTGDiscover" priority="900">
+  <check id="ping" meta="ping"/>
+  <create id="prtgdiscoverscan" kind="exexml" meta="customexexmlscan" requires="ping">
+    <metadata>
+      <exefile>
+        PRTGDiscover.ps1
+      </exefile>
+      <!-- For some reason PRTG provides the device name as %sensor, so the below is not a typo for the -devicename parameter -->
+      <exeparams>
+        -metascan -devicename '%sensor' -hostname '%host' -groupname '%group' -groupid '%groupid' -probename '%probe' -probeid '%probeid' -windowsdomain '%windowsdomain' -windowsuser '%windowsuser' -windowspassword '%windowspassword' -linuxuser '%linuxuser' -linuxpassword '%linuxpassword' -snmpcommunity '%snmpcommunity'
+      </exeparams>
+    </metadata>
+    <createdata/>
+  </create>
+</devicetemplate>
